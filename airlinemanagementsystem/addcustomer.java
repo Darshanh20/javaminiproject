@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class addcustomer extends JFrame implements ActionListener {
 
-    JTextField uname , unationality , uaadhar , uphone ,uaddress;
+    JTextField uname , unationality , uaadhar , uphone ,uaddress,uemail;
     JRadioButton male ,female;
     public addcustomer(){
         setLocation(500, 150);
@@ -83,8 +83,17 @@ public class addcustomer extends JFrame implements ActionListener {
         uphone.setBounds(220, 380, 150, 18);
         add(uphone); 
 
+        JLabel email = new JLabel("Email ID");
+        email.setBounds(60, 440, 220, 20);
+        email.setFont(new Font("Tahoma" , Font.PLAIN , 18));
+        add(email);
+
+        uemail = new JTextField();
+        uemail.setBounds(220, 440, 150, 18);
+        add(uemail); 
+
         JButton save = new JButton("Save");
-        save.setBounds(220, 440, 80, 22);
+        save.setBounds(220, 500, 80, 22);
         save.setBackground(Color.BLACK);
         save.setForeground(Color.white);
         save.addActionListener(this);
@@ -102,6 +111,7 @@ public class addcustomer extends JFrame implements ActionListener {
         String name = uname.getText();
         String nationality = unationality.getText();
         String phone = uphone.getText();
+        String email = uemail.getText();
         if(phone.length() < 10){
             JOptionPane.showMessageDialog(null, "Phone number must be exactly 10 digit");
         }
@@ -120,7 +130,7 @@ public class addcustomer extends JFrame implements ActionListener {
                 try{
                     conn conn = new conn();
 
-                    String query = "Insert into passenger values('"+name+"','"+nationality+"','"+phone+"','"+address+"','"+aadhar+"','"+gender+"')";
+                    String query = "Insert into passenger values('"+name+"','"+nationality+"','"+phone+"','"+address+"','"+aadhar+"','"+gender+"','"+email+"')";
                     conn.s.executeUpdate(query);
                     JOptionPane.showMessageDialog(null, "Done!! Customer Added!!");
                     setVisible(false);

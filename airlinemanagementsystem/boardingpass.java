@@ -7,10 +7,10 @@ import javax.swing.*;
 public class boardingpass extends JFrame implements ActionListener {
     JTextField upnr;
     JButton enter;
-    JLabel uname,unationality,src,dest,fcode,fname,ddate;
+    JLabel uname,unationality,src,dest,fcode,fname,ddate,uemail;
     public boardingpass(){
         setLocation(200, 10);
-        setSize(1200, 520);
+        setSize(1200, 550);
         getContentPane().setBackground(Color.lightGray);
         setLayout(null);
 
